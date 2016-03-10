@@ -1,6 +1,10 @@
 import ConfigParser
 import sys 
 from credentials import Credentials
+from tweepy import OAuthHandler
+from tweepy import Stream
+import tweepy
+
 
 class TwitterCredentials(Credentials):
 	"""Defines a class which manages a set of twitter credentials. This class currently only supports the tweepy api.
