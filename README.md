@@ -1,6 +1,6 @@
 # CredentialManager
 * Used for managing credentials for APIs
-* This is a work in progress and has limited capabilities for managing credentials. 
+* This is a work in progress and has limited capabilities for managing credentials for various apis. 
 * Currently designed to work with the tweepy api. 
 * Stay Posted for updates as functionallity added. 
 
