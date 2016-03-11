@@ -18,7 +18,9 @@ The goal of this project is to allow a developer to store their credentials to v
 Usage of this project is relatively simple. 
 
 1) Copy the folder credentials to wherever your project is located 
+
 2) Edit your credentials in the sample .ini file provided 
+
 3) Insert the following statements into your code wherever you need your credentials. 
 
  ```python
