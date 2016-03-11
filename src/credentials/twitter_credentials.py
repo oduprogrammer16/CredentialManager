@@ -1,5 +1,6 @@
 import ConfigParser
 import sys 
+from xml.dom import minidom
 from credentials import Credentials
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -9,7 +10,7 @@ import tweepy
 class TwitterCredentials(Credentials):
 	"""Defines a class which manages a set of twitter credentials. This class currently only supports the tweepy api.
 	"""
-	def __init__(self,credentialFileName=None,user_name=None,consumer_key=None,consumer_secret=None,access_token=None,access_token_secret=None):
+	def __init__(self,credentialFileName=None,credentialFileFormat='ini',user_name=None,consumer_key=None,consumer_secret=None,access_token=None,access_token_secret=None):
 		"""Defines a class which manages a set of twitter credentials. 
 		Args:
 			credentialFileName: The name of a file which contains the twitter credentials.
@@ -49,8 +50,9 @@ class TwitterCredentials(Credentials):
 
 
 		# If a credentialFileName was passed in, parse the values
-		if credentialFileName != None:
-			self.read_configuration_file(credentialFileName)
+		if credentialFileName is not None:
+			self.read_configuration_file(credentialFileName,config_type=credentialFileFormat)
+
 
 
 	def read_configuration_file(self,configurationFileName,config_type='ini'):
@@ -92,6 +94,29 @@ class TwitterCredentials(Credentials):
 				# # Check to see if the configuration file has an access_token_secret
 				if twitter_configuration.has_option('TwitterAPI','access_token_secret'):
 					self._access_token_secret=twitter_configuration.get('TwitterAPI','access_token_secret')
+			elif config_type == 'xml':
+
+				# Create an xml parser 
+				twitterXML = minidom.parse(str(configurationFileName))
+				# Get all tags with tag <credential>
+				cred = twitterXML.getElementsByTagName("credential")
+				for tag in cred:
+					# Look for the tag <credential name="TwitterAPI">
+					if tag.getAttribute("name") == 'TwitterAPI':
+						# Get the username 
+						self._user_name = tag.getElementsByTagName('user_name')[0].firstChild.data
+
+						# Get the consumer key 
+						self._consumer_key = tag.getElementsByTagName('consumer_key')[0].firstChild.data
+
+						# Get the consumer secret 
+						self._consumer_secret = tag.getElementsByTagName('consumer_secret')[0].firstChild.data
+
+						# Get the access token
+						self._access_token = tag.getElementsByTagName('access_token')[0].firstChild.data
+
+						# Get the access token secret 
+						self._access_token_secret = tag.getElementsByTagName('access_token_secret')[0].firstChild.data
 			else:
 				print("Error: {0} Not Supported".format(config_type))
 

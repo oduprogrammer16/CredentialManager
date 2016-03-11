@@ -10,7 +10,6 @@ if __name__=='__main__':
 	configFileName = 'blankTwitterCredentials.ini'
 	credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
 	
-
 	print(str(credentialSet))
 
 	# Create an authorization with the twitter credentials.
