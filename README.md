@@ -1,5 +1,8 @@
 # CredentialManager
 
+## Requirements 
+* Python 2.7 
+
 ## About 
 
 ### Introduction
@@ -49,6 +52,6 @@ auth = credentialSet.create_authorization()
 
 ## Additional Notes
 
-* As mentioned before, this code is still a work in progress and currently only has support for usage with the tweepy api
+* As mentioned before, this code is still a work in progress and currently designed  with usage of the tweepy api.
 * A setup.py file is under development and eventually aid installation of this project. 
 * Additional features are planned and will be designed to expand usage of this project.  
