@@ -45,9 +45,4 @@ auth = credentialSet.create_authorization()
 
 * As mentioned before, this code is still a work in progress and currently only has support for usage with the tweepy api
 * A setup.py file is under development and eventually aid installation of this project. 
-* Additional features will be added to manage multiple sets of credentials. 
-
-## DISCLAIMER
-
-* We will strive to ensure that this code is at it's best. 
-*  **We are not liable for any damages that this code may cause.**
+* Additional features are planned and will be designed to expand usage of this project.  
