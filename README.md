@@ -14,4 +14,18 @@ One of the problems I encountered was finding ways to manage my twitter api acce
 ## Goals 
 The goal of this project is to allow a developer to store their credentials to various api's in a single file and to have quick simple access to their credentials when they need them. 
 
+## Usage 
+Usage of this project is relatively simple. 
 
+1) Copy the folder credentials to wherever your project is located 
+2) Edit your credentials in the sample .ini file provided 
+3) Insert the following statements into your code wherever you need your credentials. 
+'''
+configFileName = 'blankTwitterCredentials.ini'
+	credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
+	
+	print(str(credentialSet))
+
+	# Create an authorization with the twitter credentials.
+	auth = credentialSet.create_authorization()
+'''
