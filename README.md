@@ -21,7 +21,8 @@ Usage of this project is relatively simple.
 2) Edit your credentials in the sample .ini file provided 
 3) Insert the following statements into your code wherever you need your credentials. 
 
- '''
+ ```
+ 
  configFileName = 'blankTwitterCredentials.ini'
  credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
  
@@ -30,4 +31,4 @@ Usage of this project is relatively simple.
  # Create an authorization with the twitter credentials.
  auth = credentialSet.create_authorization()
  
- '''
+ ```
