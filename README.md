@@ -15,7 +15,17 @@ Usage of this project is relatively simple.
 
 1) Copy the folder credentials to wherever your project is located. 
 
-2) Edit your credentials in the sample .ini file provided. 
+2) Edit your credentials in the sample .ini file provided or in a .ini file in using the format below: 
+
+```
+[TwitterAPI]
+user_name=Undefined
+consumer_key=Undefined 
+consumer_secret=Undefined
+access_token=Undefined
+access_token_secret=Undefined
+
+```
 
 3) Insert the following statements into your code wherever you need your credentials. 
 
