@@ -50,4 +50,4 @@ auth = credentialSet.create_authorization()
 ## DISCLAIMER
 
 * We will strive to ensure that this code is at it's best. 
-* **We are not liable for any damages that this code may cause. **
+*  **We are not liable for any damages that this code may cause.**
