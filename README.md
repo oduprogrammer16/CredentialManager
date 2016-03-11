@@ -21,14 +21,20 @@ Usage of this project is relatively simple.
 2) Edit your credentials in the sample .ini file provided 
 3) Insert the following statements into your code wherever you need your credentials. 
 
- ```
+ ```python
  
- configFileName = 'blankTwitterCredentials.ini'
- credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
- 
- # Simply prints your credentials 
- print(str(credentialSet))
- # Create an authorization with the twitter credentials.
- auth = credentialSet.create_authorization()
+import credentials.twitter_credentials 
+from tweepy import OAuthHandler
+from tweepy import Stream
+import tweepy
+
+################ Usage of the code ##################
+configFileName = 'blankTwitterCredentials.ini'
+credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
+
+# Simply prints your credentials 
+print(str(credentialSet))
+# Create an authorization with the twitter credentials.
+auth = credentialSet.create_authorization()
  
  ```
