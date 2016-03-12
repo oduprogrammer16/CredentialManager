@@ -17,6 +17,20 @@ The goal of this project is to allow a developer to store their credentials to v
 Usage of this project is relatively simple. 
 
 1) Copy the folder credentials to wherever your project is located. 
+ * **Note** Due to a small problem with the library, your project must be set as seen below. 
+ ```
+ 
+Your_Project
+|
+|
++----credentials
+|    |
+|    | __init__.py
+|    | credentials.py
+|    | twitter_credentials.py
+| Your_credentials_file.ini
+| your_main_project_code_using_credentials.py 
+```
 
 2) Edit your credentials in the sample .ini file provided or in a .ini file in using the format below: 
 
@@ -31,7 +45,7 @@ access_token_secret=Undefined
 ```
 
 3) Insert the following statements into your code wherever you need your credentials. 
-
+ 
  ```python
  
 import credentials.twitter_credentials 
