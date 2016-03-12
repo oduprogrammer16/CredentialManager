@@ -2,6 +2,7 @@
 
 ## Requirements 
 * Python 2.7 
+* Tweepy 3.5.0
 
 ## About 
 
@@ -66,6 +67,8 @@ auth = credentialSet.create_authorization()
 
 ## Additional Notes
 
-* As mentioned before, this code is still a work in progress and currently designed  with usage of the tweepy api.
+* As mentioned before, there is still a lot of work to be done with this project. 
+  * This project currently works with tweepy version 3.5.0  
+  
 * A setup.py file is under development and eventually aid installation of this project. 
 * Additional features are planned and will be designed to expand usage of this project.  
