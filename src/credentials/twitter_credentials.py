@@ -2,9 +2,7 @@ import ConfigParser
 import sys 
 from xml.dom import minidom
 from credentials import Credentials
-from tweepy import OAuthHandler
-from tweepy import Stream
-import tweepy
+
 
 
 class TwitterCredentials(Credentials):
@@ -54,6 +52,40 @@ class TwitterCredentials(Credentials):
 			self.read_configuration_file(credentialFileName,config_type=credentialFileFormat)
 
 
+	@property 
+	def user_name(self):
+		"""Gets the user_name.
+		Returns: The user_name. 
+		"""
+		return self._user_name
+
+	@property 
+	def consumer_key(self):
+		"""Gets the consumer_key. 
+		Returns: The consumer_key. 
+		"""
+		return self._consumer_key
+
+	@property 
+	def consumer_secret(self):
+		"""Gets the consumer_secret.
+		Returns: The consumer_secret.
+		"""
+		return self._consumer_secret
+
+	@property 
+	def access_token(self):
+		"""Gets the access_token. 
+		Returns: The access_token.
+		"""
+		return self._access_token
+
+	@property 
+	def access_token_secret(self):
+		"""Gets the access_token_secret. 
+		Returns: The access_token_secret.
+		"""
+		return self._access_token_secret
 
 	def read_configuration_file(self,configurationFileName,config_type='ini'):
 		"""Reads a configuration file. 
@@ -140,7 +172,8 @@ class TwitterCredentials(Credentials):
 		else: 
 			if api == 'tweepy':
 				try:
-					from tweepy import OAuthHandler 
+					from tweepy import OAuthHandler
+					import tweepy
 				except ImportError as e:
 					print("Error: failed to import module: {0}".format(e))
 					return None 
