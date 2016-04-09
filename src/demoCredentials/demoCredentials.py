@@ -1,14 +1,17 @@
 
 
-import credentials.twitter_credentials 
+#import credentials.twitter_credentials 
 from tweepy import OAuthHandler
 from tweepy import Stream
 import tweepy
+import sys 
 
+sys.path.insert(0,'../credentials')
+import twitter_credentials
 
 if __name__=='__main__':
 	configFileName = 'blankTwitterCredentials.ini'
-	credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
+	credentialSet = twitter_credentials.TwitterCredentials(configFileName)
 	
 	print(str(credentialSet))
 
