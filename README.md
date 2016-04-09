@@ -68,7 +68,9 @@ if __name__=='__main__':
 	print(str(credentialSet))
 
 	# Create an authorization with the twitter credentials.
-	auth = credentialSet.create_authorization()
+	auth = tweepy.OAuthHandler(credentialSet.consumer_key,credentialSet.consumer_secret)
+	auth.set_access_token(credentialSet.access_token,credentialSet.access_token_secret)
+	
 	api = tweepy.API(auth)
 	try:
 		api.verify_credentials()
