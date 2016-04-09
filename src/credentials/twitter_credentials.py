@@ -126,6 +126,7 @@ class TwitterCredentials(Credentials):
 				# # Check to see if the configuration file has an access_token_secret
 				if twitter_configuration.has_option('TwitterAPI','access_token_secret'):
 					self._access_token_secret=twitter_configuration.get('TwitterAPI','access_token_secret')
+			
 			elif config_type == 'xml':
 
 				# Create an xml parser 
@@ -152,37 +153,7 @@ class TwitterCredentials(Credentials):
 			else:
 				print("Error: {0} Not Supported".format(config_type))
 
-	def create_authorization(self,api='tweepy'):
-		"""Creates an authorization for the tweepy api. 
-		Args:
-			api: The specific api to use. Currently only supports tweepy
-		Returns: An authorization for the tweepy api.
-		"""
-		if self._consumer_key is None or self._consumer_secret is None or self._access_token is None or self._access_token_secret is None:
-			print("Error: Unable to create authorization: ")
-			if self._consumer_key is None:
-				print("\tconsumer_key does not exist.")
-			if self._consumer_key is None:
-				print("\tconsumer_secret does not exist.")
-			if self._consumer_key is None:
-				print("\taccess_token does not exist.")
-			if self._consumer_key is None:
-				print("\taccess_token_secret does not exist.")
-			return None 
-		else: 
-			if api == 'tweepy':
-				try:
-					from tweepy import OAuthHandler
-					import tweepy
-				except ImportError as e:
-					print("Error: failed to import module: {0}".format(e))
-					return None 
-				auth = tweepy.OAuthHandler(self._consumer_key,self._consumer_secret)
-				auth.set_access_token(self._access_token,self._access_token_secret)
-				return auth
-			else:
-				print("Error: Api Not supported.")
-				return None
+	
 
 
 	def __str__(self):

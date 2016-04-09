@@ -2,7 +2,6 @@
 
 ## Requirements 
 * Python 2.7 
-* Tweepy 3.5.0
 
 ## About 
 
@@ -80,9 +79,13 @@ if __name__=='__main__':
  ```
 
 ## Additional Notes
-
-* As mentioned before, there is still a lot of work to be done with this project. 
-  * This project currently works with tweepy version 3.5.0  
-  
+   
 * A setup.py file is under development and eventually aid installation of this project. 
 * Additional features are planned and will be designed to expand usage of this project.  
+
+## Revision History 
+
+### 4/9/15
+
+* Originally this project was planned to be designed to work with the tweepy api. After careful consideration, this project will not perform functions for the tweepy api and will soley be used to manage credential set. 
+
