@@ -29,8 +29,11 @@ Your_Project
 |    | __init__.py
 |    | credentials.py
 |    | twitter_credentials.py
-| Your_credentials_file.ini
-| your_main_project_code_using_credentials.py 
+|
++----Your source code files 
+|    | 
+|    | Your_credentials_file.ini
+|    | your_main_project_code_using_credentials.py 
 ```
 
 2) Edit your credentials in the sample .ini file provided or in a .ini file in using the format below: 
@@ -49,19 +52,30 @@ access_token_secret=Undefined
  
  ```python
  
-import credentials.twitter_credentials 
+
+
 from tweepy import OAuthHandler
 from tweepy import Stream
 import tweepy
+import sys 
 
-################ Usage of the code ##################
-configFileName = 'blankTwitterCredentials.ini'
-credentialSet = credentials.twitter_credentials.TwitterCredentials(configFileName)
+sys.path.insert(0,'../credentials')
+import twitter_credentials
 
-# Simply prints your credentials 
-print(str(credentialSet))
-# Create an authorization with the twitter credentials.
-auth = credentialSet.create_authorization()
+if __name__=='__main__':
+	configFileName = 'blankTwitterCredentials.ini'
+	credentialSet = twitter_credentials.TwitterCredentials(configFileName)
+	
+	print(str(credentialSet))
+
+	# Create an authorization with the twitter credentials.
+	auth = credentialSet.create_authorization()
+	api = tweepy.API(auth)
+	try:
+		api.verify_credentials()
+		print("Successfully logged in.")
+	except: 
+		pass
  
  ```
 
